@@ -1,33 +1,16 @@
-public class Point3d {
+import java.text.Format;
 
-    private double XCord;
-    private double YCord;
+
+public class Point3d extends Point2d {
     private double ZCord;
 
     public Point3d(double x, double y, double z) {
-        XCord = x;
-        YCord = y;
+        super(x, y);
         ZCord = z;
     }
 
     public Point3d() {
         this(0, 0, 0);
-    }
-
-    public double gexX() {
-        return XCord;
-    }
-
-    public void setX(double numb) {
-        XCord = numb;
-    }
-
-    public double gexY() {
-        return YCord;
-    }
-
-    public void setY(double numb) {
-        YCord = numb;
     }
 
     public double gexZ() {
@@ -45,10 +28,7 @@ public class Point3d {
         return false;
     }
 
-    public double DistanceTO(double x, double y, double z, double x2, double y2, double z2) {
+    public double distase(double x, double y, double z, double x2, double y2, double z2) {
         return (Math.sqrt(Math.pow((x2 - x), 2) + Math.pow((y2 - y), 2) + Math.pow((z2 - z), 2)));
-
-
     }
 }
-

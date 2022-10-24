@@ -1,61 +1,66 @@
+
 import java.util.Scanner;
 
 public class Lab1 {
-    public static void main(String[] args) {
 
+    public static void main(String[] args){
 
-        Scanner num = new Scanner(System.in);
+        Scanner in = new Scanner (System.in);
         Point3d firstPoint = new Point3d();
-        Point3d secondPoint = new Point3d();
-        Point3d thirdPoint = new Point3d();
-        Point3d DistanceTO = new Point3d();
+        Point3d secondPoint = new Point3d(1,8,9);
+        Point3d thirdPoint = new Point3d(9,4,3);
+        Point3d distance = new Point3d();
 
-        System.out.println("Enter X meaning: ");
-        double first = num.nextDouble();
-        System.out.println("Enter Y meaning: ");
-        double second = num.nextDouble();
-        System.out.println("Enter Z meaning: ");
-        double third = num.nextDouble();
-        firstPoint.setX(first);
-        firstPoint.setY(second);
-        firstPoint.setZ(third);
+        //ввод  координат firstPoint
+        System.out.println("Enter the x value of the first point ");
+        double x = Double.parseDouble(in.nextLine());
+        System.out.println("Enter the y value of the first point");
+        double y = Double.parseDouble(in.nextLine());
+        System.out.println("Enter the y value of the z point");
+        double z = Double.parseDouble(in.nextLine());
+// установление координат firstPoint
+        firstPoint.setX(x);
+        firstPoint.setY(y);
+        firstPoint.setZ(z);
 
-        System.out.println("Enter second X meaning: ");
-        double firstOne = num.nextDouble();
-        System.out.println("Enter second Y meaning: ");
-        double secondTwo = num.nextDouble();
-        System.out.println("Enter second Z meaning: ");
-        double thirdThree = num.nextDouble();
-        secondPoint.setX(firstOne);
-        secondPoint.setY(secondTwo);
-        secondPoint.setZ(thirdThree);
+        //ввод  координат secondPoint
+        System.out.println("Enter the x value of the second point");
+        double x2 = Double.parseDouble(in.nextLine());
+        System.out.println("Enter the y value of the second point");
+        double y2 = Double.parseDouble(in.nextLine());
+        System.out.println("Enter the z value of the second point");
+        double z2 = Double.parseDouble(in.nextLine());
+// установление координат secondPoint
+        secondPoint.setX(x2);
+        secondPoint.setY(y2);
+        secondPoint.setZ(z2);
 
-        System.out.println("Enter third X meaning: ");
-        double firstLast = num.nextDouble();
-        System.out.println("Enter third Y meaning: ");
-        double secondLast = num.nextDouble();
-        System.out.println("Enter third Z meaning: ");
-        double thirdLast = num.nextDouble();
-        thirdPoint.setX(firstLast);
-        thirdPoint.setY(secondLast);
-        thirdPoint.setZ(thirdLast);
+        //ввод  координат thirdPoint
+        System.out.println("Enter the x value of the third point");
+        double x3 = Double.parseDouble(in.nextLine());
+        System.out.println("Enter the y value of the third point");
+        double y3 = Double.parseDouble(in.nextLine());
+        System.out.println("Enter the z value of the third point");
+        double z3 = Double.parseDouble(in.nextLine());
+// установление координат thirdPoint
+        thirdPoint.setX(x3);
+        thirdPoint.setY(y3);
+        thirdPoint.setZ(z3);
 
-        double a = DistanceTO.DistanceTO(firstPoint.gexX(), firstPoint.gexY(), firstPoint.gexZ(), secondPoint.gexX(), secondPoint.gexY(), secondPoint.gexZ());
-        double b = DistanceTO.DistanceTO(secondPoint.gexX(), secondPoint.gexY(), secondPoint.gexZ(), thirdPoint.gexX(),thirdPoint.gexY(),thirdPoint.gexZ());
-        double c = DistanceTO.DistanceTO(firstPoint.gexX(), firstPoint.gexY(), firstPoint.gexZ(), thirdPoint.gexX(),thirdPoint.gexY(),thirdPoint.gexZ());
+
+        // подсчет
+        double a= distance.distase(firstPoint.getX(), firstPoint.getY(), firstPoint.gexZ(), secondPoint.getX(), secondPoint.getY(), secondPoint.gexZ());
+        double b = distance.distase(secondPoint.getX(), secondPoint.getY(), secondPoint.gexZ(), thirdPoint.getX(),thirdPoint.getY(),thirdPoint.gexZ());
+        double c = distance.distase(firstPoint.getX(), firstPoint.getY(), firstPoint.gexZ(), thirdPoint.getX(),thirdPoint.getY(),thirdPoint.gexZ());
         if (a==b || b==c || a==c){
-            System.out.println("Two sides are equal");
+            System.out.println("both sides are equal");
         }
         else{
-        System.out.printf("%.2f",computeArea(a, b, c));
+            System.out.printf("%.2f",computeArea(a, b, c));
         }
-
-
-   }
-
-    private static double computeArea(double a, double b, double c) {
-        double function = (a+b+c)/2;
-        return Math.sqrt(function * (function-a)*(function-b) * (function-c));
     }
-
+    public static double computeArea(double a, double b, double c){
+        double  p= (a+b+c)/2;
+        return Math.sqrt(p*(p-a)*(p-b)*(p-c));
+    }
 }
